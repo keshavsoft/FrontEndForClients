@@ -4,6 +4,7 @@ let StartFunc = async ({ inBodyData }) => {
     let jVarLocalStartRoute = ConfigJson.StartRoute;
     let jVarLocalBodyData = inBodyData;
     let jVarLocalFetchUrl = `/${jVarLocalStartRoute}/PurchaseItems/Create/WithCheckAndGenPk`;
+    console.log("aaaaaabbbbbbbbb : ", jVarLocalFetchUrl);
 
     let jVarLocalFetchHeaderObject = {
         method: "POST",
