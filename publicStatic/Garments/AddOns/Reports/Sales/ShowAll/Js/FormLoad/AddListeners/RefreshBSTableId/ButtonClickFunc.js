@@ -1,9 +1,7 @@
-import {  StartFunc as fetchBillsQrCode } from "./fetchBillsQrCode.js";
-
 let StartFunc = async () => {
     jFLocalHideSpinner();
 
-    let jVarLocalQrCodeData = await fetchBillsQrCode();
+    let jVarLocalQrCodeData = await jFLocalFetchBillsQrCode();
 
     var $table = $('#table');
     let LocalArrayReverseData = jVarLocalQrCodeData.slice().reverse();

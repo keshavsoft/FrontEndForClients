@@ -1,5 +1,1 @@
-{
-    "routePath": "bin",
-    "tableName": "Accounts",
-    "StartRoute" : "binV4"
-}
+{"routePath":"bin","tableName":"Accounts"}

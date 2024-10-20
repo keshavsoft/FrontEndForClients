@@ -1,6 +1,9 @@
+import ConfigJson from '../../Config.json' with {type: 'json'};
+
 let StartFunc = async ({ inBodyData }) => {
+    let jVarLocalStartRoute = ConfigJson.StartRoute;
     let jVarLocalBodyData = inBodyData;
-    let jVarLocalFetchUrl = `/bin/PurchaseItems/WithCheckAndGenPk`;
+    let jVarLocalFetchUrl = `/${jVarLocalStartRoute}/PurchaseItems/Create/WithCheckAndGenPk`;
 
     let jVarLocalFetchHeaderObject = {
         method: "POST",

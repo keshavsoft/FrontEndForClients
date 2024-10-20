@@ -1,18 +1,14 @@
 import { FromNode } from "../PullData/FetchFuncs.js";
-import { ReturnRowPK } from "../urlSearchParams.js";
 import { StartFunc as InvGridStartFunc } from "./InvGrid.js";
 import { StartFunc as TableFootSuccessStartFunc } from "../FetchFuncs/HtmlPull/TableFootSuccess.js";
 import { StartFunc as StartFuncFetchFuncs } from "../PullData/PurchaseItems/FetchFuncs.js";
 
-let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName, inShowSuccess }) => {
-    let jVarLocalRowPk = ReturnRowPK();
-
+let StartFunc = async ({ inShowSuccess }) => {
     let jVarLocalData = await FromNode();
     let jVarLocalPurchaseItems = await StartFuncFetchFuncs();
 
     await ShowOnDom({ inData: jVarLocalData, inShowSuccess });
     await InvGridStartFunc({ inData: jVarLocalPurchaseItems });
-
 };
 
 let ShowOnDom = async ({ inData, inShowSuccess }) => {
