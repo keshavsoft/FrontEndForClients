@@ -1,11 +1,7 @@
-import ConfigJson from '../../../../config.json' with {type: 'json'};
-
 let FromNode = async () => {
-    const jVarLocalStartUrl = ConfigJson.StartUrl;
-
     try {
         let LocalRowpk = localStorage.getItem("RowPk")
-        let jVarLocalFetchUrl = `/${jVarLocalStartUrl}/BillsQrCode/Search/AsArray?Key=BillPk&Value=${LocalRowpk}`;
+        let jVarLocalFetchUrl = `/bin/BillsQrCode/FilterData/BillPk/${LocalRowpk}`;
 
         const response = await fetch(jVarLocalFetchUrl);
 
