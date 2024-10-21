@@ -5,7 +5,7 @@ let FromNode = async () => {
         let jVarLocalStartUrl = ConfigJson.StartUrl;
         let LocalReturnObject = { KTF: false, KResult: "", JsonData: {} };
 
-        let jVarLocalFetchUrl = `/${jVarLocalStartUrl}/Generate/Show/DataOnly`;
+        let jVarLocalFetchUrl = `/${jVarLocalStartUrl}/pos/Show/DataOnly`;
 
         const response = await fetch(jVarLocalFetchUrl);
         const data = await response.json();
@@ -17,8 +17,7 @@ let FromNode = async () => {
 
     } catch (error) {
         console.log("error:", error);
-    }
-
+    };
 };
 
 export { FromNode };
