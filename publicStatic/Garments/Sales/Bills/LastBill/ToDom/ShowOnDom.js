@@ -5,7 +5,7 @@ import { StartFunc as InvGridStartFunc } from "./InvGrid.js";
 import { StartFunc as TableFootSuccessStartFunc } from "../FetchFuncs/HtmlPull/TableFootSuccess.js";
 import { StartFunc as StartFuncTableFooterTotals } from "./TableFooterTotals/ShowToDom.js";
 
-let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName, inShowSuccess }) => {
+let StartFunc = async ({ inShowSuccess }) => {
     let jVarLocalRowPk = ReturnRowPK();
 
     let jVarLocalData = await FromNode();
@@ -25,11 +25,9 @@ let localInventeryShow = async () => {
     let jVarLocalDataToShow = await FetchFuncForBillsQrCode();
 
     if (jVarLocalDataToShow.status === 500) {
-        console.log("Status-500");
         let jVarLocalSnoid = document.getElementById("Snoid");
         jVarLocalSnoid.value = 1;
-        return
-
+        return;
     } else {
         const data = await jVarLocalDataToShow.json();
         let localdata = data;
