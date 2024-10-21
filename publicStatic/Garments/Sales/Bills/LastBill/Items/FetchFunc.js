@@ -1,15 +1,30 @@
-import ConfigJson from '../../../../config.json' with {type: 'json'};
-
 let StartFunc = async ({ inProjectName }) => {
     let LocalReturnObject = { KTF: false, KResult: "", JsonData: {} };
-    const jVarLocalStartUrl = ConfigJson.StartUrl;
 
     try {
-        let jVarLocalFetchUrl = `/${jVarLocalStartUrl}/Items/Show/DataOnly`;
+        let inFetchPostData = {
+            inFolderName: "Masters",
+            inFileNameOnly: "Items",
+            inItemName: "ItemName",
+            ScreenName: "ForDataList"
+        };
+
+        
+        //   let jVarLocalFetchUrl = `/${inProjectName}/Api/Data/FromFolder/FromFile/Items/FromDataFolder/WithScreens/WithChecking/CreateNew`;
+        let jVarLocalFetchUrl = `/bin/Items/DataOnly`;
+
+        // let jVarLocalFetchHeaders = {
+        //     method: "post",
+        //     headers: {
+        //         'Accept': 'application/json',
+        //         'Content-Type': 'application/json'
+        //     },
+        //     body: JSON.stringify(inFetchPostData)
+        // };
 
         const response = await fetch(jVarLocalFetchUrl);
         const data = await response.json();
-
+        
         if (data) {
             LocalReturnObject.JsonData = data;
         };
