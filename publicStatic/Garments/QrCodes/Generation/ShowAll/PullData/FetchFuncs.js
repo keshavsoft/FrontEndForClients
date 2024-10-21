@@ -1,7 +1,12 @@
-let FromNode = async ({ inFolderName, inFileName, inItemName, inProjectName }) => {
+import ConfigJson from '../../../../config.json' with {type: 'json'};
+
+let FromNode = async () => {
     try {
+        let jVarLocalStartUrl = ConfigJson.StartUrl;
         let LocalReturnObject = { KTF: false, KResult: "", JsonData: {} };
-        let jVarLocalFetchUrl = `/bin/Generate/DataOnly`;
+
+        let jVarLocalFetchUrl = `/${jVarLocalStartUrl}/Generate/Show/DataOnly`;
+
         const response = await fetch(jVarLocalFetchUrl);
         const data = await response.json();
 
