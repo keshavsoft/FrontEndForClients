@@ -1,9 +1,10 @@
 import { StartFunc as StartFucToFooter } from "../ToDom/ToFooter.js";
 import { StartFunc as StartFuncDiscount } from "../ToDom/ProductDetails/Table/Footer/Discount.js";
-
+import ConfigJson from '../../../../config.json' with {type: 'json'};
 
 let StartFunc = async ({ inProjectName, inJsonPK }) => {
     let jVarLocalQrCodeData = await jFLocalFetchQrCodeData({ inProjectName, inJsonPK });
+
     if (jVarLocalQrCodeData === undefined) {
         swal.fire({ title: "No Data", icon: "error" })
         return;
@@ -29,11 +30,12 @@ const jFLocalLatestDiscount = ({ inDiscountArray }) => {
 };
 
 let jFLocalFetchQrCodeData = async ({ inJsonPK }) => {
+    const jVarLocalStartUrl = ConfigJson.StartUrl;
 
     try {
         let jVarLocalRowPK = inJsonPK;
 
-        let jVarLocalFetchUrl = `/bin/Generate/${jVarLocalRowPK}`;
+        let jVarLocalFetchUrl = `/${jVarLocalStartUrl}/Generate/RowShow/${jVarLocalRowPK}`;
 
         const response = await fetch(jVarLocalFetchUrl);
         const data = await response.json();

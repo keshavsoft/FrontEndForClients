@@ -1,5 +1,3 @@
-import { StartFunc as SaveFuncsStartFunc } from "./ButtonFuncs/InvTable/Footer/SaveFuncs.js";
-import { StartFunc as ShowOnDomStartFunc } from "./ToDom/ShowOnDom.js";
 import { StartFunc as KeyPressStartFunc } from "./FetchFuncs/KeyPress.js";
 import { StartFunc as StartFuncinvKeyPressCal } from "./invKeyPressCal.js";
 import { ReturnRowPK } from "./urlSearchParams.js";
