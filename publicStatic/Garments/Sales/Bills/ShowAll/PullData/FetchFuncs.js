@@ -1,26 +1,19 @@
-let FromNode = async ({ inFolderName, inFileName, inItemName, inProjectName }) => {
+import ConfigJson from '../../../../config.json' with {type: 'json'};
+
+let FromNode = async () => {
     try {
+        let jVarLocalStartUrl = ConfigJson.StartUrl;
         let LocalReturnObject = { KTF: false, KResult: "", JsonData: {} };
 
-        // let jVarLocalFetchUrl = `/${inProjectName}/API/Data/FromFolder/FromFile/Items/FromDataFolder/AsArrayWithPK`;
-        let jVarLocalFetchUrl = "/bin/pos/Filter";
+        let jVarLocalFetchUrl = `/${jVarLocalStartUrl}/Generate/Show/DataOnly`;
 
-        let inFetchPostData = {
-            FilterCondition: "e.Date >='2024-04-01' && e.Date <='2025-03-31'"
-        };
-
-        let jVarLocalFetchHeaders = {
-            method: "post",
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(inFetchPostData)
-        };
-
-        const response = await fetch(jVarLocalFetchUrl, jVarLocalFetchHeaders);
+        const response = await fetch(jVarLocalFetchUrl);
         const data = await response.json();
-        return await data;
+
+        LocalReturnObject.JsonData = data;
+
+        LocalReturnObject.KTF = true;
+        return await LocalReturnObject;
 
     } catch (error) {
         console.log("error:", error);
