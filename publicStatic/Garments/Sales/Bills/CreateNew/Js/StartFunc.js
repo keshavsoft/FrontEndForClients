@@ -4,7 +4,6 @@ import { StartFunc as StartFuncAddlisteners } from "./Addlisteners/EntryFile.js"
 const StartFunc = () => {
     StartFuncShowOnDom();
     StartFuncAddlisteners();
-
 };
 
 StartFunc();
