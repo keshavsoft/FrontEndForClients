@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "students": "vite build --config src/Clients/Students/NiceAdmin/vite.config.js"
+    "Students": "vite build --config src/Clients/Students/NiceAdmin/vite.config.js"
   },
   "author": "",
   "license": "ISC",
